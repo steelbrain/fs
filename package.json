@@ -1,0 +1,32 @@
+{
+  "name": "sb-fs",
+  "version": "0.0.0",
+  "description": "Promisified fs for Node.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "(apm test) && (flow check) && (eslint . )",
+    "clean": "rm -rf lib",
+    "build": "npm run clean; babel src --out-dir lib",
+    "watch": "npm run build -- -w"
+  },
+  "keywords": [
+    "sb", "fs", "promise"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steelbrain/react-table.git"
+  },
+  "author": "steelbrain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/react-table/issues"
+  },
+  "homepage": "https://github.com/steelbrain/react-table#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-steelbrain": "^4.0.2",
+    "eslint-config-steelbrain": "^1.0.4",
+    "flow-bin": "^0.32.0",
+    "jasmine-fix": "^1.0.1"
+  }
+}
