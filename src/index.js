@@ -17,4 +17,7 @@ for (const key in FS) {
   }
 }
 
+promisifiedFS.rimraf = promisify(require('rimraf'))
+promisifiedFS.mkdirp = promisify(require('mkdirp'))
+
 module.exports = promisifiedFS

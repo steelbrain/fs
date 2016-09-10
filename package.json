@@ -16,14 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steelbrain/react-table.git"
+    "url": "git+https://github.com/steelbrain/fs.git"
   },
   "author": "steelbrain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steelbrain/react-table/issues"
+    "url": "https://github.com/steelbrain/fs/issues"
   },
-  "homepage": "https://github.com/steelbrain/react-table#readme",
+  "homepage": "https://github.com/steelbrain/fs#readme",
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-preset-steelbrain": "^4.0.2",
@@ -32,6 +32,8 @@
     "jasmine-fix": "^1.0.1"
   },
   "dependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4",
     "sb-promisify": "^2.0.1"
   }
 }
