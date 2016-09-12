@@ -19,5 +19,12 @@ for (const key in FS) {
 
 promisifiedFS.rimraf = promisify(require('rimraf'))
 promisifiedFS.mkdirp = promisify(require('mkdirp'))
+promisifiedFS.exists = function(path: string) {
+  return new Promise(function(resolve) {
+    FS.access(path, function(error) {
+      resolve(error === null)
+    })
+  })
+}
 
 module.exports = promisifiedFS
