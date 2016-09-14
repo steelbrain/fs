@@ -12,19 +12,21 @@ npm install --save sb-fs
 
 ```js
 export promisifyAll(*) from 'fs'
-export function rimraf(path: string): Promise
-export function mkdirp(path: string): Promise
+export function rimraf(path: string): Promise<void>
+export function mkdirp(path: string): Promise<void>
+export function exists(path: string): Promise<boolean>
 ```
 
 ## Usage
 
 ```js
-import { readFile, rimraf, mkdirp } from 'sb-fs'
+import { readFile, rimraf, mkdirp, exists } from 'sb-fs'
 
 export default async function freedom() {
   await mkdirp('/path/to/democracy')
   await rimraf('/path/to/communism')
   console.log(await readFile(__filename))
+  console.log(await exists('/path/to/humanity') ? 'it exists!!' : 'Naah it doesnt exist' )
 }
 ```
 
