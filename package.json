@@ -6,8 +6,8 @@
   "scripts": {
     "test": "(apm test) && (flow check) && (eslint . )",
     "clean": "rm -rf lib",
-    "build": "npm run clean; babel src --out-dir lib",
-    "watch": "npm run build -- -w"
+    "compile": "npm run clean; babel src --out-dir lib",
+    "watch": "npm run compile -- -w"
   },
   "keywords": [
     "sb",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-preset-steelbrain": "^4.0.2",
-    "eslint-config-steelbrain": "^1.0.4",
+    "eslint-config-steelbrain": "^2.0.0",
     "flow-bin": "^0.32.0",
     "jasmine-fix": "^1.0.1"
   },
