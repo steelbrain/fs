@@ -4,13 +4,14 @@ import FS from 'fs'
 import promisify from 'sb-promisify'
 
 const promisifiedFS = {}
+const syncMethods = ['Stats', '_toUnixTimestamp', 'watch', 'watchFile', 'unwatchFile', 'createReadStream', 'ReadStream', 'FileReadStream', 'createWriteStream', 'WriteStream', 'FileWriteStream']
 
 for (const key in FS) {
   if (!{}.hasOwnProperty.call(FS, key)) {
     continue
   }
   const value = FS[key]
-  if (typeof value === 'function') {
+  if (typeof value === 'function' && key.indexOf('Sync') === -1 && syncMethods.indexOf(key) === -1) {
     promisifiedFS[key] = promisify(value)
   } else {
     promisifiedFS[key] = value
