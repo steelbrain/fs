@@ -20,13 +20,14 @@ export function exists(path: string): Promise<boolean>
 ## Usage
 
 ```js
-import { readFile, rimraf, mkdirp, exists } from 'sb-fs'
+import { readFile, rimraf, mkdirp, exists, createReadStream, createWriteStream } from 'sb-fs'
 
 export default async function freedom() {
   await mkdirp('/path/to/democracy')
   await rimraf('/path/to/communism')
   console.log(await readFile(__filename))
   console.log(await exists('/path/to/humanity') ? 'it exists!!' : 'Naah it doesnt exist' )
+  createReadStream('source.js').pipe(createWriteStream('target.js'), { end: true })
 }
 ```
 
