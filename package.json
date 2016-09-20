@@ -6,8 +6,8 @@
   "scripts": {
     "test": "(apm test) && (flow check) && (eslint . )",
     "clean": "rm -rf lib",
-    "build": "npm run clean; babel src --out-dir lib",
-    "watch": "npm run build -- -w"
+    "compile": "npm run clean; babel src --out-dir lib",
+    "watch": "npm run compile -- -w"
   },
   "keywords": [
     "sb",
