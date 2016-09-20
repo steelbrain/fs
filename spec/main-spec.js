@@ -1,6 +1,7 @@
 /* @flow */
 
 import { it } from 'jasmine-fix'
+import vanilla from 'fs'
 import fs from '../'
 
 describe('sb-fs', function() {
@@ -23,5 +24,21 @@ describe('sb-fs', function() {
       await fs.access(__filename + '.bhrrr')
       expect(false).toBe(true)
     } catch (e) { /* No Op */ }
+  })
+  it('does not promisify sync functions', function() {
+    expect(fs.writeSync).toBe(vanilla.writeSync)
+    expect(fs.write).not.toBe(vanilla.write)
+    expect(fs.readSync).toBe(vanilla.readSync)
+    expect(fs.read).not.toBe(vanilla.read)
+    expect(fs.openSync).toBe(vanilla.openSync)
+    expect(fs.open).not.toBe(vanilla.open)
+  })
+  it('does not promisify non-callback functions', function() {
+    expect(fs.createReadStream).toBe(vanilla.createReadStream)
+    expect(fs.createWriteStream).toBe(vanilla.createWriteStream)
+    expect(fs.WriteStream).toBe(vanilla.WriteStream)
+    expect(fs.watch).toBe(vanilla.watch)
+    expect(fs.watchFile).toBe(vanilla.watchFile)
+    expect(fs.unwatchFile).toBe(vanilla.unwatchFile)
   })
 })
