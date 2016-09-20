@@ -1,5 +1,6 @@
 /* @flow */
 
+import Path from 'path'
 import { it } from 'jasmine-fix'
 import vanilla from 'fs'
 import fs from '../'
@@ -21,7 +22,7 @@ describe('sb-fs', function() {
       expect(false).toBe(true)
     }
     try {
-      await fs.access(__filename + '.bhrrr')
+      await fs.access(Path.join(__dirname, 'test.bhrrr'))
       expect(false).toBe(true)
     } catch (e) { /* No Op */ }
   })

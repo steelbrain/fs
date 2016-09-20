@@ -1,6 +1,8 @@
 /* @flow */
 
 import FS from 'fs'
+import rimraf from 'rimraf'
+import mkdirp from 'mkdirp'
 import promisify from 'sb-promisify'
 
 const promisifiedFS = {}
@@ -18,8 +20,8 @@ for (const key in FS) {
   }
 }
 
-promisifiedFS.rimraf = promisify(require('rimraf'))
-promisifiedFS.mkdirp = promisify(require('mkdirp'))
+promisifiedFS.rimraf = promisify(rimraf)
+promisifiedFS.mkdirp = promisify(mkdirp)
 promisifiedFS.exists = function(path: string) {
   return new Promise(function(resolve) {
     FS.access(path, function(error) {
