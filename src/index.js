@@ -24,7 +24,7 @@ promisifiedFS.rimraf = promisify(rimraf)
 promisifiedFS.mkdirp = promisify(mkdirp)
 promisifiedFS.exists = function(path: string) {
   return new Promise(function(resolve) {
-    FS.access(path, function(error) {
+    FS.access(path, FS.R_OK, function(error) {
       resolve(error === null)
     })
   })
