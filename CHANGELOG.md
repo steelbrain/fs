@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Make `FS.readFile` return a BOM stripped string
+
 ## 1.1.1
 
 - Fix a bug where sync methods like `createReadStream` and classes like `ReadStream` would be promisified

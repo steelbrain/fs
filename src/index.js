@@ -29,5 +29,16 @@ promisifiedFS.exists = function(path: string) {
     })
   })
 }
+promisifiedFS.readFile = function(path: string) {
+  return new Promise(function(resolve, reject) {
+    FS.readFile(path, 'utf8', function(error, contents) {
+      if (error) {
+        reject(error)
+      } else if (contents.charCodeAt(0) === 0xFEFF) {
+        resolve(contents.slice(1))
+      } else resolve(contents)
+    })
+  })
+}
 
 module.exports = promisifiedFS
