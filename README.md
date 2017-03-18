@@ -1,5 +1,7 @@
 # FS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/steelbrain/fs.svg)](https://greenkeeper.io/)
+
 `sb-fs` is a Node.js module that exports a promisified FS.
 
 ## Installation
