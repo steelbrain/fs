@@ -43,7 +43,7 @@ describe('sb-fs', function() {
     expect(fs.unwatchFile).toBe(vanilla.unwatchFile)
   })
   it('returns a BOM stripped string', async function() {
-    const contents = await fs.readFile(__filename)
+    const contents = await fs.readFile(__filename, 'utf8')
     expect(contents.charCodeAt(0)).not.toBe(0xFEFF)
   })
 })
