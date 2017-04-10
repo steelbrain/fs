@@ -1,9 +1,8 @@
 /* @flow */
 
 import FS from 'fs'
-import rimraf from 'rimraf'
-import mkdirp from 'mkdirp'
 import promisify from 'sb-promisify'
+import stripBomBuf from 'strip-bom-buf'
 
 const promisifiedFS = {}
 const syncMethods = ['Stats', '_toUnixTimestamp', 'watch', 'watchFile', 'unwatchFile', 'createReadStream', 'ReadStream', 'FileReadStream', 'createWriteStream', 'WriteStream', 'FileWriteStream']
@@ -20,8 +19,6 @@ for (const key in FS) {
   }
 }
 
-promisifiedFS.rimraf = promisify(rimraf)
-promisifiedFS.mkdirp = promisify(mkdirp)
 promisifiedFS.exists = function(path: string) {
   return new Promise(function(resolve) {
     FS.access(path, FS.R_OK, function(error) {
@@ -29,14 +26,18 @@ promisifiedFS.exists = function(path: string) {
     })
   })
 }
-promisifiedFS.readFile = function(path: string) {
+promisifiedFS.readFile = function(path: string, encoding: ?string) {
   return new Promise(function(resolve, reject) {
-    FS.readFile(path, 'utf8', function(error, contents) {
+    FS.readFile(path, function(error, buffer) {
       if (error) {
         reject(error)
-      } else if (contents.charCodeAt(0) === 0xFEFF) {
-        resolve(contents.slice(1))
-      } else resolve(contents)
+        return
+      }
+      let contents = stripBomBuf(buffer)
+      if (encoding) {
+        contents = contents.toString(encoding)
+      }
+      resolve(contents)
     })
   })
 }

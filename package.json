@@ -32,8 +32,7 @@
     "jasmine-fix": "^1.0.1"
   },
   "dependencies": {
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4",
-    "sb-promisify": "^2.0.1"
+    "sb-promisify": "^2.0.1",
+    "strip-bom-buf": "^1.0.0"
   }
 }
