@@ -1,6 +1,6 @@
 {
   "name": "sb-fs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Promisified fs for Node.js",
   "main": "lib/index.js",
   "scripts": {
