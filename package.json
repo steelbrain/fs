@@ -4,9 +4,10 @@
   "description": "Promisified fs for Node.js",
   "main": "lib/index.js",
   "scripts": {
-    "test": "(ava spec/*-spec.js) && (flow check) && (eslint . )",
+    "test": "ava spec/*-spec.js",
     "prepare": "npm run compile",
     "compile": "sb-babel-cli src -o lib",
+    "lint": "(flow check) && (eslint . ) && (prettier --list-different src/*.js)",
     "watch": "npm run compile -- -w"
   },
   "keywords": [
