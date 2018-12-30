@@ -3,7 +3,7 @@
 import Path from 'path'
 import { it } from 'jasmine-fix'
 import vanilla from 'fs'
-import fs from '../'
+import fs from '..'
 
 describe('sb-fs', function() {
   it('exports consts properly', function() {
