@@ -24,7 +24,9 @@ describe('sb-fs', function() {
     try {
       await fs.access(Path.join(__dirname, 'test.bhrrr'))
       expect(false).toBe(true)
-    } catch (e) { /* No Op */ }
+    } catch (e) {
+      /* No Op */
+    }
   })
   it('does not promisify sync functions', function() {
     expect(fs.writeSync).toBe(vanilla.writeSync)
@@ -44,6 +46,6 @@ describe('sb-fs', function() {
   })
   it('returns a BOM stripped string', async function() {
     const contents = await fs.readFile(__filename, 'utf8')
-    expect(contents.charCodeAt(0)).not.toBe(0xFEFF)
+    expect(contents.charCodeAt(0)).not.toBe(0xfeff)
   })
 })
