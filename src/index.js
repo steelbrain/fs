@@ -1,7 +1,7 @@
 /* @flow */
 
 import fs from 'fs'
-import promisify from 'sb-promisify'
+import { promisify } from 'util'
 import stripBomBuf from 'strip-bom-buf'
 
 const promisifiedFS = {}
