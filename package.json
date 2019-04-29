@@ -35,7 +35,7 @@
     "sb-babel-cli": "^2.0.0"
   },
   "dependencies": {
-    "strip-bom-buf": "^1.0.0"
+    "strip-bom-buf": "^2.0.0"
   },
   "engines": {
     "node": ">= 8"
